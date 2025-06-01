@@ -1,0 +1,3 @@
+C:\Users\borch\OneDrive\Desktop\PS5NorModifier-main\PS5 NOR Modifier\obj\Release\net6.0-windows\PS5 NOR Modifier.csproj.AssemblyReference.cache
+C:\Users\borch\OneDrive\Desktop\PS5NorModifier-main\PS5 NOR Modifier\obj\Release\net6.0-windows\PS5_NOR_Modifier.Form1.resources
+C:\Users\borch\OneDrive\Desktop\PS5NorModifier-main\PS5 NOR Modifier\obj\Release\net6.0-windows\PS5 NOR Modifier.csproj.GenerateResource.cache
