@@ -45,9 +45,6 @@ namespace PS5_NOR_Modifier
 
         static SerialPort UARTSerial = new SerialPort();
 
-        /// <summary>
-        /// With thanks to  @jjxtra on Github. The code has already been created and there's no need to reinvent the wheel is there?
-        /// </summary>
         #region Hex Code
 
         private static IEnumerable<int> PatternAt(byte[] source, byte[] pattern)
