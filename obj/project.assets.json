@@ -239,11 +239,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\borch\\source\\repos\\tater PS5 Nor program\\Taternor.csproj",
+      "projectUniqueName": "C:\\Users\\borch\\OneDrive\\Documents\\GitHub\\taternorps5\\Taternor.csproj",
       "projectName": "Taternor",
-      "projectPath": "C:\\Users\\borch\\source\\repos\\tater PS5 Nor program\\Taternor.csproj",
+      "projectPath": "C:\\Users\\borch\\OneDrive\\Documents\\GitHub\\taternorps5\\Taternor.csproj",
       "packagesPath": "C:\\Users\\borch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\borch\\source\\repos\\tater PS5 Nor program\\obj\\",
+      "outputPath": "C:\\Users\\borch\\OneDrive\\Documents\\GitHub\\taternorps5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

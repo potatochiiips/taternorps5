@@ -75,7 +75,7 @@
             label22 = new Label();
             btnClearErrorCodes = new Button();
             label21 = new Label();
-            button1 = new Button();
+            codepuller = new Button();
             comboComPorts = new ComboBox();
             btnDisconnectCom = new Button();
             btnConnectCom = new Button();
@@ -478,7 +478,7 @@
             tabPage2.Controls.Add(label22);
             tabPage2.Controls.Add(btnClearErrorCodes);
             tabPage2.Controls.Add(label21);
-            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(codepuller);
             tabPage2.Controls.Add(comboComPorts);
             tabPage2.Controls.Add(btnDisconnectCom);
             tabPage2.Controls.Add(btnConnectCom);
@@ -595,17 +595,17 @@
             label21.TabIndex = 6;
             label21.Text = "Options:";
             // 
-            // button1
+            // codepuller
             // 
-            button1.Location = new Point(157, 97);
-            button1.Margin = new Padding(7, 6, 7, 6);
-            button1.Name = "button1";
-            button1.Size = new Size(230, 51);
-            button1.TabIndex = 5;
-            button1.Text = "Get Error Codes";
-            button1.UseVisualStyleBackColor = true;
+            codepuller.Location = new Point(157, 97);
+            codepuller.Margin = new Padding(7, 6, 7, 6);
+            codepuller.Name = "codepuller";
+            codepuller.Size = new Size(230, 51);
+            codepuller.TabIndex = 5;
+            codepuller.Text = "Get Error Codes";
+            codepuller.UseVisualStyleBackColor = true;
             // Update the event handler assignment to match the correct return type
-            button1.Click += Button1_Click;
+            codepuller.Click += Pullcodes_Click;
             // 
             // comboComPorts
             // 
@@ -676,9 +676,12 @@
         }
 
         // Ensure the method signature matches the expected return type for the event handler
-        private void Button1_Click(object sender, EventArgs e)
+        private void Pullcodes_Click(object sender, EventArgs e)
         {
-            // Your existing logic for handling the button click event
+            _ = Pullerrorsasync(null, EventArgs.Empty); // Fire and forget
+             //the other methods are commented out to avoid them running before they exist 
+             //   _ = Pullsystemtemps(null, EventArgs.Empty); // Fire and forget
+            //   _ = Pullsystemstate(null, EventArgs.Empty); // Fire and forget
         }
         #endregion
         private Label label2;
@@ -722,7 +725,7 @@
         private Label label22;
         private Button btnClearErrorCodes;
         private Label label21;
-        private Button button1;
+        private Button codepuller;
         private ComboBox comboComPorts;
         private Button btnDisconnectCom;
         private Button btnConnectCom;

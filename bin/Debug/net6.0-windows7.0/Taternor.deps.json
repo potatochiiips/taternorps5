@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "PS5 NOR Modifier/1.0.0": {
+      "Taternor/1.0.0": {
         "dependencies": {
           "System.IO.Ports": "8.0.0"
         },
         "runtime": {
-          "PS5 NOR Modifier.dll": {}
+          "Taternor.dll": {}
         }
       },
       "runtime.linux-arm.runtime.native.System.IO.Ports/8.0.0": {
@@ -96,7 +96,7 @@
     }
   },
   "libraries": {
-    "PS5 NOR Modifier/1.0.0": {
+    "Taternor/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

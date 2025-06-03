@@ -731,8 +731,20 @@ namespace PS5_NOR_Modifier
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async Task Button1_ClickAsync(object sender, EventArgs e)
+       
+        /*
+        private async Task Pullsystemtemps(object sender, EventArgs e)
         {
+            //pull temps from UART
+        }
+        private async Task Pullsystemstate(object sender, EventArgs e)
+        {
+            //pull temps from UART
+        }
+        */
+        private async Task Pullerrorsasync(object sender, EventArgs e)
+        {
+            
             // Let's read the error codes from UART
             txtUARTOutput.Text = "";
 
@@ -955,11 +967,6 @@ namespace PS5_NOR_Modifier
                 MessageBox.Show("Please enter a command to send via UART.", "An error occurred...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        /// <summary>
-        /// If the user presses the enter key while using the custom command box, handle it by programmatically pressing the
-        /// send button. This is more of a convenience thing really!
-        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void txtCustomCommand_KeyPress(object sender, KeyPressEventArgs e)

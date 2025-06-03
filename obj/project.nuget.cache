@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xsLe3s/BPsE=",
+  "dgSpecHash": "FQkA6iN+5zE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\borch\\source\\repos\\tater PS5 Nor program\\Taternor.csproj",
+  "projectFilePath": "C:\\Users\\borch\\OneDrive\\Documents\\GitHub\\taternorps5\\Taternor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\borch\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
     "C:\\Users\\borch\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
