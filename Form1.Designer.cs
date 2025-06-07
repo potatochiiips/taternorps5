@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label2 = new Label();
             label5 = new Label();
             fileLocationBox = new TextBox();
@@ -65,6 +64,7 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
+            pictureBox2 = new PictureBox();
             label25 = new Label();
             btnSendCommand = new Button();
             txtCustomCommand = new TextBox();
@@ -75,35 +75,59 @@
             label22 = new Label();
             btnClearErrorCodes = new Button();
             label21 = new Label();
-            codepuller = new Button();
+            button1 = new Button();
             comboComPorts = new ComboBox();
             btnDisconnectCom = new Button();
             btnConnectCom = new Button();
             label3 = new Label();
+            pictureBox1 = new PictureBox();
+            menuStrip1 = new MenuStrip();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            exportResultsToolStripMenuItem = new ToolStripMenuItem();
+            settingsToolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            lightDarkModeToolStripMenuItem = new ToolStripMenuItem();
+            lightModeToolStripMenuItem = new ToolStripMenuItem();
+            darkModeToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            fAQsToolStripMenuItem = new ToolStripMenuItem();
+            aboutMeToolStripMenuItem = new ToolStripMenuItem();
+            legalToolStripMenuItem = new ToolStripMenuItem();
+            button2 = new Button();
             statusStrip1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 22F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(573, 33);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Cambria", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label2.ImageKey = "(none)";
+            label2.Location = new Point(143, 55);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(530, 67);
+            label2.Size = new Size(1124, 112);
             label2.TabIndex = 2;
-            label2.Text = "PS5 NOR Modifier";
+            label2.Text = "Tater's PS5 NOR Modifier";
+            label2.Click += label2_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Comic Sans MS", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(10, 6);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(291, 33);
+            label5.Size = new Size(359, 39);
             label5.TabIndex = 6;
             label5.Text = "Please Select NOR Dump";
             // 
@@ -201,7 +225,7 @@
             // 
             statusStrip1.ImageScalingSize = new Size(24, 24);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 1183);
+            statusStrip1.Location = new Point(0, 1133);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(2, 0, 22, 0);
             statusStrip1.Size = new Size(1815, 42);
@@ -247,7 +271,7 @@
             // 
             // convertToDigitalEditionButton
             // 
-            convertToDigitalEditionButton.Location = new Point(1403, 486);
+            convertToDigitalEditionButton.Location = new Point(1399, 515);
             convertToDigitalEditionButton.Margin = new Padding(5, 4, 5, 4);
             convertToDigitalEditionButton.Name = "convertToDigitalEditionButton";
             convertToDigitalEditionButton.Size = new Size(322, 101);
@@ -468,6 +492,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(pictureBox2);
             tabPage2.Controls.Add(label25);
             tabPage2.Controls.Add(btnSendCommand);
             tabPage2.Controls.Add(txtCustomCommand);
@@ -478,7 +503,7 @@
             tabPage2.Controls.Add(label22);
             tabPage2.Controls.Add(btnClearErrorCodes);
             tabPage2.Controls.Add(label21);
-            tabPage2.Controls.Add(codepuller);
+            tabPage2.Controls.Add(button1);
             tabPage2.Controls.Add(comboComPorts);
             tabPage2.Controls.Add(btnDisconnectCom);
             tabPage2.Controls.Add(btnConnectCom);
@@ -492,15 +517,26 @@
             tabPage2.Text = "UART Communication";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(0, 580);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(148, 152);
+            pictureBox2.TabIndex = 18;
+            pictureBox2.TabStop = false;
+            // 
             // label25
             // 
             label25.AutoSize = true;
-            label25.Location = new Point(70, 631);
+            label25.Font = new Font("Consolas", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label25.ForeColor = Color.Red;
+            label25.Location = new Point(135, 558);
             label25.Margin = new Padding(7, 0, 7, 0);
             label25.Name = "label25";
-            label25.Size = new Size(640, 132);
+            label25.Size = new Size(1593, 248);
             label25.TabIndex = 17;
-            label25.Text = resources.GetString("label25.Text");
+            label25.Text = "While you can send custom commands here.\nCaution is recomended as sending improper commands\nruns a risk of damaging your ps5. so be careful and be\n100% sure you should send the command before sending";
+            label25.Click += label25_Click;
             // 
             // btnSendCommand
             // 
@@ -534,7 +570,7 @@
             // 
             // btnRefreshPorts
             // 
-            btnRefreshPorts.Location = new Point(1199, 29);
+            btnRefreshPorts.Location = new Point(1186, 27);
             btnRefreshPorts.Margin = new Padding(7, 6, 7, 6);
             btnRefreshPorts.Name = "btnRefreshPorts";
             btnRefreshPorts.Size = new Size(190, 51);
@@ -545,7 +581,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(1378, 490);
+            button3.Location = new Point(1352, 489);
             button3.Margin = new Padding(7, 6, 7, 6);
             button3.Name = "button3";
             button3.Size = new Size(335, 51);
@@ -556,6 +592,7 @@
             // 
             // txtUARTOutput
             // 
+            txtUARTOutput.BackColor = SystemColors.Window;
             txtUARTOutput.Location = new Point(157, 171);
             txtUARTOutput.Margin = new Padding(7, 6, 7, 6);
             txtUARTOutput.Multiline = true;
@@ -595,17 +632,16 @@
             label21.TabIndex = 6;
             label21.Text = "Options:";
             // 
-            // codepuller
+            // button1
             // 
-            codepuller.Location = new Point(157, 97);
-            codepuller.Margin = new Padding(7, 6, 7, 6);
-            codepuller.Name = "codepuller";
-            codepuller.Size = new Size(230, 51);
-            codepuller.TabIndex = 5;
-            codepuller.Text = "Get Error Codes";
-            codepuller.UseVisualStyleBackColor = true;
-            // Update the event handler assignment to match the correct return type
-            codepuller.Click += Pullcodes_Click;
+            button1.Location = new Point(157, 97);
+            button1.Margin = new Padding(7, 6, 7, 6);
+            button1.Name = "button1";
+            button1.Size = new Size(230, 51);
+            button1.TabIndex = 5;
+            button1.Text = "Get Error Codes";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1_Click;
             // 
             // comboComPorts
             // 
@@ -618,7 +654,7 @@
             // 
             // btnDisconnectCom
             // 
-            btnDisconnectCom.Location = new Point(960, 24);
+            btnDisconnectCom.Location = new Point(945, 27);
             btnDisconnectCom.Margin = new Padding(7, 6, 7, 6);
             btnDisconnectCom.Name = "btnDisconnectCom";
             btnDisconnectCom.Size = new Size(210, 51);
@@ -648,19 +684,140 @@
             label3.TabIndex = 0;
             label3.Text = "Com Port:";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Location = new Point(31, 37);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(104, 103);
+            pictureBox1.TabIndex = 46;
+            pictureBox1.TabStop = false;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, settingsToolStripMenuItem1, aboutToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1815, 40);
+            menuStrip1.TabIndex = 47;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator1, exportResultsToolStripMenuItem });
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(71, 36);
+            settingsToolStripMenuItem.Text = "File";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click_1;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(292, 6);
+            // 
+            // exportResultsToolStripMenuItem
+            // 
+            exportResultsToolStripMenuItem.Name = "exportResultsToolStripMenuItem";
+            exportResultsToolStripMenuItem.Size = new Size(295, 44);
+            exportResultsToolStripMenuItem.Text = "Export Results";
+            // 
+            // settingsToolStripMenuItem1
+            // 
+            settingsToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator2, lightDarkModeToolStripMenuItem });
+            settingsToolStripMenuItem1.Name = "settingsToolStripMenuItem1";
+            settingsToolStripMenuItem1.Size = new Size(120, 36);
+            settingsToolStripMenuItem1.Text = "Settings";
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(325, 6);
+            // 
+            // lightDarkModeToolStripMenuItem
+            // 
+            lightDarkModeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lightModeToolStripMenuItem, darkModeToolStripMenuItem });
+            lightDarkModeToolStripMenuItem.Name = "lightDarkModeToolStripMenuItem";
+            lightDarkModeToolStripMenuItem.Size = new Size(328, 44);
+            lightDarkModeToolStripMenuItem.Text = "Light/Dark Mode";
+            // 
+            // lightModeToolStripMenuItem
+            // 
+            lightModeToolStripMenuItem.Name = "lightModeToolStripMenuItem";
+            lightModeToolStripMenuItem.Size = new Size(270, 44);
+            lightModeToolStripMenuItem.Text = "Light Mode";
+            // 
+            // darkModeToolStripMenuItem
+            // 
+            darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
+            darkModeToolStripMenuItem.Size = new Size(270, 44);
+            darkModeToolStripMenuItem.Text = "Dark Mode";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator3, toolStripMenuItem1, fAQsToolStripMenuItem, aboutMeToolStripMenuItem, legalToolStripMenuItem });
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(99, 36);
+            aboutToolStripMenuItem.Text = "About";
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(267, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(270, 44);
+            toolStripMenuItem1.Text = "How to Use";
+            // 
+            // fAQsToolStripMenuItem
+            // 
+            fAQsToolStripMenuItem.Name = "fAQsToolStripMenuItem";
+            fAQsToolStripMenuItem.Size = new Size(270, 44);
+            fAQsToolStripMenuItem.Text = "FAQs";
+            // 
+            // aboutMeToolStripMenuItem
+            // 
+            aboutMeToolStripMenuItem.Name = "aboutMeToolStripMenuItem";
+            aboutMeToolStripMenuItem.Size = new Size(270, 44);
+            aboutMeToolStripMenuItem.Text = "About Me";
+            // 
+            // legalToolStripMenuItem
+            // 
+            legalToolStripMenuItem.Name = "legalToolStripMenuItem";
+            legalToolStripMenuItem.Size = new Size(270, 44);
+            legalToolStripMenuItem.Text = "Legal";
+            legalToolStripMenuItem.Click += legalToolStripMenuItem_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Beige;
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.Location = new Point(1628, 26);
+            button2.Name = "button2";
+            button2.Size = new Size(150, 164);
+            button2.TabIndex = 48;
+            button2.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(15F, 33F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.IndianRed;
-            ClientSize = new Size(1815, 1225);
+            BackColor = Color.Beige;
+            ClientSize = new Size(1815, 1175);
+            Controls.Add(button2);
+            Controls.Add(pictureBox1);
             Controls.Add(tabControl1);
             Controls.Add(statusStrip1);
+            Controls.Add(menuStrip1);
             Controls.Add(label2);
+            Cursor = Cursors.Hand;
             Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(5, 4, 5, 4);
             Name = "Form1";
-            Text = "PS5 NOR Modifier";
+            Text = "Tater's PS5 NOR Modifier";
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             statusStrip1.ResumeLayout(false);
@@ -670,18 +827,20 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         // Ensure the method signature matches the expected return type for the event handler
-        private void Pullcodes_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            _ = Pullerrorsasync(null, EventArgs.Empty); // Fire and forget
-             //the other methods are commented out to avoid them running before they exist 
-             //   _ = Pullsystemtemps(null, EventArgs.Empty); // Fire and forget
-            //   _ = Pullsystemstate(null, EventArgs.Empty); // Fire and forget
+            _ = Pullcodesasync(null, EventArgs.Empty); // Fire and forget
+                ExtractTemperature(null); // Fire and forget
         }
         #endregion
         private Label label2;
@@ -725,7 +884,7 @@
         private Label label22;
         private Button btnClearErrorCodes;
         private Label label21;
-        private Button codepuller;
+        private Button button1;
         private ComboBox comboComPorts;
         private Button btnDisconnectCom;
         private Button btnConnectCom;
@@ -735,5 +894,23 @@
         private TextBox txtCustomCommand;
         private Label label24;
         private Label label25;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem exportResultsToolStripMenuItem;
+        private ToolStripMenuItem settingsToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem lightDarkModeToolStripMenuItem;
+        private ToolStripMenuItem lightModeToolStripMenuItem;
+        private ToolStripMenuItem darkModeToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem fAQsToolStripMenuItem;
+        private ToolStripMenuItem aboutMeToolStripMenuItem;
+        private Button button2;
+        private ToolStripMenuItem legalToolStripMenuItem;
     }
 }

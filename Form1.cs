@@ -23,8 +23,10 @@ namespace PS5_NOR_Modifier
         public Form1()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            lightModeToolStripMenuItem.Click += LightModeToolStripMenuItem_Click;
+            darkModeToolStripMenuItem.Click += DarkModeToolStripMenuItem_Click;
         }
-
         static string CalculateChecksum(string str)
         {
             int sum = 0;
@@ -45,6 +47,9 @@ namespace PS5_NOR_Modifier
 
         static SerialPort UARTSerial = new SerialPort();
 
+        /// <summary>
+        /// With thanks to  @jjxtra on Github. The code has already been created and there's no need to reinvent the wheel is there?
+        /// </summary>
         #region Hex Code
 
         private static IEnumerable<int> PatternAt(byte[] source, byte[] pattern)
@@ -83,9 +88,13 @@ namespace PS5_NOR_Modifier
             string[] ports = SerialPort.GetPortNames();
             comboComPorts.Items.Clear();
             comboComPorts.Items.AddRange(ports);
-            comboComPorts.SelectedIndex = 0;
+
+            if (comboComPorts.Items.Count > 0)
+            {
+                comboComPorts.SelectedIndex = 0;
+            }
+
             btnConnectCom.Enabled = true;
-            btnDisconnectCom.Enabled = false;
         }
 
         // Declare offsets to detect console version
@@ -211,10 +220,6 @@ namespace PS5_NOR_Modifier
                 else
                 {
                     if (!fileDialogBox.SafeFileName.EndsWith(".bin"))
-                    {
-                        throwError("The file you selected is not a valid. Please ensure the file you are choosing is a correct BIN file and try again.");
-                    }
-                    else
                     {
                         // Let's load simple information first, before loading BIN specific data
                         fileLocationBox.Text = "";
@@ -449,6 +454,10 @@ namespace PS5_NOR_Modifier
                             _ => " - Unknown Region"
                         };
                         #endregion
+                    }
+                    else
+                    {
+                        throwError("The file you selected is not a valid. Please ensure the file you are choosing is a correct BIN file and try again.");
                     }
                 }
             }
@@ -722,28 +731,41 @@ namespace PS5_NOR_Modifier
                 toolStripStatusLabel1.Text = "An error occurred while disconnecting from UART. Please try again...";
             }
         }
+        private float ExtractTemperature(string hexInput)
+        {
 
+            // Convert the hexadecimal string (e.g., "1A3F") to a 16-bit unsigned integer
+            var input = Convert.ToUInt16(hexInput, 16);
+
+            // Check for invalid value (0xFFFF)
+            if (input == 0xFFFF)
+            {
+                txtUARTOutput.AppendText("Temperature: N/A" + Environment.NewLine);
+                return float.NaN;
+            }
+
+            // Extract integer and decimal parts
+            byte integerPart = (byte)(input >> 8);
+            byte decimalPart = (byte)(input & 0xFF);
+
+            // Calculate temperature
+            float temperature = integerPart + (decimalPart / 256.0f);
+
+            // Append temperature to output (formatted to 2 decimal places)
+            txtUARTOutput.AppendText($"Temperature: {temperature:F2} °C" + Environment.NewLine);
+
+            return temperature;
+        }
         /// <summary>
         /// Read error codes from UART
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-       
-        /*
-        private async Task Pullsystemtemps(object sender, EventArgs e)
+        private async Task Pullcodesasync(object sender, EventArgs e)
         {
-            //pull temps from UART
-        }
-        private async Task Pullsystemstate(object sender, EventArgs e)
-        {
-            //pull temps from UART
-        }
-        */
-        private async Task Pullerrorsasync(object sender, EventArgs e)
-        {
-            
-            // Let's read the error codes from UART
-            txtUARTOutput.Text = "";
+
+        // Let's read the error codes from UART
+        txtUARTOutput.Text = "";
 
             if (UARTSerial.IsOpen == true)
             {
@@ -779,10 +801,12 @@ namespace PS5_NOR_Modifier
                                 case "NG":
                                     break;
                                 case "OK":
+                                  
                                     var errorCode = split[2];
                                     // Now that the error code has been isolated from the rest of the junk sent by the system
                                     // let's check it against the database. The error server will need to return XML results
                                     string errorResult = ParseErrors(errorCode);
+                                   
                                     if (!txtUARTOutput.Text.Contains(errorResult))
                                     {
                                         txtUARTOutput.AppendText(errorResult + Environment.NewLine);
@@ -964,6 +988,11 @@ namespace PS5_NOR_Modifier
                 MessageBox.Show("Please enter a command to send via UART.", "An error occurred...", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        /// <summary>
+        /// If the user presses the enter key while using the custom command box, handle it by programmatically pressing the
+        /// send button. This is more of a convenience thing really!
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void txtCustomCommand_KeyPress(object sender, KeyPressEventArgs e)
@@ -973,5 +1002,70 @@ namespace PS5_NOR_Modifier
                 btnSendCommand.PerformClick();
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void legalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void LightModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyTheme(Color.Beige, Color.Black);
+        }
+
+        private void DarkModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyTheme(Color.FromArgb(30, 30, 30), Color.White);
+        }
+
+        private void ApplyTheme(Color backColor, Color foreColor)
+        {
+            this.BackColor = backColor;
+            foreach (Control ctrl in this.Controls)
+            {
+                ApplyColorsRecursive(ctrl, backColor, foreColor);
+            }
+        }
+
+        private void ApplyColorsRecursive(Control control, Color backColor, Color foreColor)
+        {
+            control.BackColor = backColor;
+            control.ForeColor = foreColor;
+
+            foreach (Control child in control.Controls)
+            {
+                ApplyColorsRecursive(child, backColor, foreColor);
+            }
+        }
+
     }
 }
