@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Taternor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7c48d4ad6f32c627bc33e0158149d392d8eb587")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da67a0bbba2a5264a72208564db7d7261a04ec52")]
 [assembly: System.Reflection.AssemblyProductAttribute("Taternor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Taternor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

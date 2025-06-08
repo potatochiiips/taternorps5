@@ -1,19 +1,20 @@
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.IO.Ports;
+using System.Net;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.IO.Ports;
-using System;
 using System.Threading;
-using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Xml;
+using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Net;
-using System.Xml;
-using System.Security.Policy;
 
 namespace PS5_NOR_Modifier
 {
@@ -204,7 +205,15 @@ namespace PS5_NOR_Modifier
             toolStripStatusLabel1.Text = "Status: Waiting for input";
         }
 
+private void Devpower()
+        {
+            //this is a placeholder for the DevPower function, it willl be used to track the power status of the PS5s components
+        }
 
+private void upcause()
+        {
+            //this is a placeholder for the upcause function, it will be used to track the power on cause of the PS5s components
+        }
         private void browseFileButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialogBox = new OpenFileDialog();
@@ -668,7 +677,13 @@ namespace PS5_NOR_Modifier
             string[] ports = SerialPort.GetPortNames();
             comboComPorts.Items.Clear();
             comboComPorts.Items.AddRange(ports);
-            comboComPorts.SelectedIndex = 0;
+
+            if (comboComPorts.Items.Count > 0)
+            {
+                comboComPorts.SelectedIndex = 0;
+            }
+
+            btnConnectCom.Enabled = true;
             btnConnectCom.Enabled = true;
             btnDisconnectCom.Enabled = false;
         }
